@@ -1,10 +1,5 @@
 {% extends "base.html" %}
-{% load mezzanine_tags staticfiles %}
 {% load i18n mezzanine_tags blog_tags keyword_tags disqus_tags %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static "mezzanine/css/magnific-popup.css" %}">
-{% endblock extra_css %}
 
 {% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock %}
 
@@ -55,22 +50,52 @@
 			<li data-slide-to="2" data-target="#main-slider" class="active"></li>
 		</ol>
 		<div class="carousel-inner">
-			{% for blog_post in blog_posts.object_list %}
-			{% if blog_post.featured_post %}
-			<div style="background-image: url({{ MEDIA_URL }}{{blog_post.featured_image }})" class="item {% cycle 'active' '' '' %}">
+			<div style="background-image: url(static/images/slider/bg1.jpg)" class="item">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="carousel-content centered" style="margin-top: 265px;">
-								<h2 class="animation animated-item-1"><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h2>
-								<p class="animation animated-item-2">{{ blog_post.publish_date|timesince }} {% trans "ago" %}</p>
+								<h2 class="animation animated-item-1">Powerful and Responsive Web Design</h2>
+								<p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div><!--/.item-->
-			{% endif %}
-			{% endfor %} 
+			<div style="background-image: url(static/images/slider/bg2.jpg)" class="item">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="carousel-content center centered" style="margin-top: 208.5px;">
+								<h2 class="boxed animation animated-item-1">Clean, Crisp, Powerful and Responsive Web Design</h2>
+								<p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+								<br>
+								<a href="#" class="btn btn-md animation animated-item-3">Learn More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/.item-->
+			<div style="background-image: url(static/images/slider/bg3.jpg)" class="item active">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="carousel-content centered" style="margin-top: 219px;">
+								<h2 class="animation animated-item-1">Powerful and Responsive Web Design Theme</h2>
+								<p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+								<a href="#" class="btn btn-md animation animated-item-3">Learn More</a>
+							</div>
+						</div>
+						<div class="col-sm-6 hidden-xs animation animated-item-4">
+							<div class="centered" style="margin-top: 129px;">
+								<div class="embed-container">
+									<iframe frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src="//player.vimeo.com/video/69421653?title=0&amp;byline=0&amp;portrait=0&amp;color=a22c2f"></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/.item-->
 		</div><!--/.carousel-inner-->
 	</div><!--/.carousel-->
 	<a data-slide="prev" href="#main-slider" class="prev hidden-xs">
@@ -80,13 +105,15 @@
 		<i class="icon-angle-right"></i>
 	</a>
 </section>
-<section  id="portfolio" class="container">
-	<!-- <div class="row"> -->
-		
-		
-		
-		<!-- <div class="col-sm-8 col-sm-pull-4"> -->
-			<!-- <div class="blog"> -->
+<section id="blog" class="container">
+	<div class="row">
+		{% block right_panel %}
+		<aside class="col-sm-4 col-sm-push-8">
+			{% include "blog/includes/filter_panel.html" %}
+		</aside>
+		{% endblock %}
+		<div class="col-sm-8 col-sm-pull-4">
+			<div class="blog">
 				{% if tag or category or year or month or author %}
 				{% block blog_post_list_filterinfo %}
 				<p>
@@ -116,101 +143,103 @@
 				{% endif %}
 
 
+
 				{% for blog_post in blog_posts.object_list %}
-				<ul class="portfolio-items col-3">
-					<!-- <div class="blog-item"> -->
+				<div class="blog-item">
 					{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
 					{% block blog_post_list_post_featured_image %}
-					<li class="portfolio-item apps">
-						<div class="item-inner">
-							<a href="{{ blog_post.get_absolute_url }}">
-								<img src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">                    
+					<a href="{{ blog_post.get_absolute_url }}">
+						<img width="100%" class="img-responsive img-blog" src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">
+					</a>
+					{% endblock %}
+					{% endif %}
+					<div class="blog-content">
+
+						{% block blog_post_list_post_title %}
+
+						{% editable blog_post.title %}
+						<a href="{{ blog_post.get_absolute_url }}"><h3>{{ blog_post.title }}</h3></a>
+
+						{% endeditable %}
+						{% endblock %}
+						{% block blog_post_list_post_metainfo %}
+						{% editable blog_post.publish_date %}
+						<div class="entry-meta">
+							<span><i class="icon-user"></i> {% with blog_post.user as author %}
+								<a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
+								{% endwith %}
+							</span>
+							<span><i class="icon-folder-close"></i>
+								{% with blog_post.categories.all as categories %}
+								{% if categories %}
+								{% trans "in" %}
+								{% for category in categories %}
+								<a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+								{% endfor %}
+								{% endif %}
+								{% endwith %}
+
+							</span>
+							<span><i class="icon-calendar"></i> {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}</span>
+							<span><i class="icon-comment"></i> 
+								{% if blog_post.allow_comments %}
+
+								{% if settings.COMMENTS_DISQUS_SHORTNAME %}
+								<a href="{{ blog_post.get_absolute_url }}#disqus_thread"
+								data-disqus-identifier="{% disqus_id_for blog_post %}">
+								{% trans "Comments" %}
 							</a>
-			<!-- <a href="{{ blog_post.get_absolute_url }}">
-				<img width="100%" class="img-responsive img-blog" src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">
-			</a> -->
+							{% else %}
+							<a href="{{ blog_post.get_absolute_url }}#comments">
+								{% blocktrans count comments_count=blog_post.comments_count %}{{ comments_count }} comment{% plural %}{{ comments_count }} comments{% endblocktrans %}
+							</a>
+							{% endif %}
+							{% endif %}
+
+						</span>
+					</div>
+
+					{% endeditable %}
+					{% endblock %}
+
+
+
+					{% block blog_post_list_post_content %}
+					{% editable blog_post.content %}
+					{{ blog_post.description_from_content|safe }}
+					{% endeditable %}
+					{% endblock %}
+
+					<a href="{{ blog_post.get_absolute_url }}"  class="btn btn-default">{% trans "read more" %} <i class="icon-angle-right"> </i></a>
+					{% block blog_post_list_post_links %}
+					{% keywords_for blog_post as tags %}
+					{% if tags %}
+					<div class="tags">
+						<i class="icon-tags"></i> {% trans "Tags" %}:
+						{% spaceless %}
+						{% for tag in tags %} 
+
+						<a href="{% url "blog_post_list_tag" tag.slug %}" class="btn btn-xs btn-primary">{{ tag }}</a> &nbsp;
+						{% endfor %}
+						{% endspaceless %}
+					</div>
+					{% endif %}
+
+
+				</div>
+			</div>
 			{% endblock %}
-			{% endif %}
-			<!-- <div class="blog-content"> -->
-			
-			{% block blog_post_list_post_title %}
-
-			{% editable blog_post.title %}
-			<a href="{{ blog_post.get_absolute_url }}"><h3>{{ blog_post.title }}</h3></a>
-
-			{% endeditable %}
-			{% endblock %}
-
-	{% block blog_post_list_post_metainfo %}
-	{% editable blog_post.publish_date %}
-	<div class="entry-meta">
-		<span><i class="icon-user"></i> {% with blog_post.user as author %}
-			<a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
-			{% endwith %}
-		</span>
-		<br />
-		<span><i class="icon-folder-close"></i>
-			{% with blog_post.categories.all as categories %}
-			{% if categories %}
-			{% trans "in" %}
-			{% for category in categories %}
-			<a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
 			{% endfor %}
-			{% endif %}
-			{% endwith %}
 
-		</span>
-		<br />
-		<span><i class="icon-calendar"></i> {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}</span>
-		<br />
-		<span><i class="icon-comment"></i> 
-			{% if blog_post.allow_comments %}
+		</div>
+	</div>
 
-			{% if settings.COMMENTS_DISQUS_SHORTNAME %}
-			<a href="{{ blog_post.get_absolute_url }}#disqus_thread"
-			data-disqus-identifier="{% disqus_id_for blog_post %}">
-			{% trans "Comments" %}
-		</a>
-		{% else %}
-		<a href="{{ blog_post.get_absolute_url }}#comments">
-			{% blocktrans count comments_count=blog_post.comments_count %}{{ comments_count }} comment{% plural %}{{ comments_count }} comments{% endblocktrans %}
-		</a>
-		{% endif %}
-		{% endif %}
+	{% pagination_for blog_posts %}
 
-	</span>
+	{% if settings.COMMENTS_DISQUS_SHORTNAME %}
+	{% include "generic/includes/disqus_counts.html" %}
+	{% endif %}
 </div>
-
-{% endeditable %}
-{% endblock %}
-
-
-
-{% block blog_post_list_post_content %}
-{% editable blog_post.content %}
-{{ blog_post.description_from_content|safe }}
-{% endeditable %}
-{% endblock %}
-
-<!-- <a href="{{ blog_post.get_absolute_url }}"  class="btn btn-default">{% trans "read more" %} <i class="icon-angle-right"> </i></a> -->
-
-
-
-</div>           
-</li><!--/.portfolio-item-->
-</ul><!-- </div> -->
-<!-- </div> -->
-{% endfor %}
-
-<!-- </div> -->
-<!-- </div> -->
-
-{% pagination_for blog_posts %}
-
-{% if settings.COMMENTS_DISQUS_SHORTNAME %}
-{% include "generic/includes/disqus_counts.html" %}
-{% endif %}
-<!-- </div> -->
 </section>
 {% endblock %}
 
