@@ -1196,3 +1196,85 @@ img.piano {
   position: absolute;
   background-color: blue;
 }
+
+
+/* Our Author Team
+--------------------------------*/
+#team {
+  padding: 60px 0;
+}
+
+#team .member {
+  text-align: center;
+}
+
+#team .member .pic {
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+#team .member .pic img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+#team .member h4 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+#team .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+#team .member .social {
+  margin-top: 15px;
+}
+
+#team .member .social a {
+  color: #b3b3b3;
+}
+
+#team .member .social a:hover {
+  color: #1dc8cd;
+}
+
+#team .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
+}
+
+.section-bg {
+  background: #eff5f5;
+}
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+/* Sections Header
+--------------------------------*/
+.section-header .section-title {
+  font-size: 32px;
+  color: #111;
+  text-align: center;
+  font-weight: 400;
+}
+
+.section-header .section-description {
+  text-align: center;
+  padding-bottom: 40px;
+  color: #777;
+  font-style: italic;
+}
+
+.section-header .section-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #1dc8cd;
+  background: linear-gradient(0deg, #1dc8cd 0%, #55fabe 100%);
+  margin: 0 auto;
+  margin-bottom: 20px;
+}

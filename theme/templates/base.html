@@ -98,25 +98,6 @@
     {% endnevercache %}
 
 </div>
-{% block top %}
-<section class="emerald" id="title">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h1>{% block title %}{% endblock %}</h1>
-                
-            </div>
-            <div class="col-sm-6">
-                <ul class="breadcrumb pull-right">
-                    {% spaceless %}
-                    {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
-                    {% endspaceless %}
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-{% endblock %}
 
 
 {% block left_panel %}
