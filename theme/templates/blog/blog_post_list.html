@@ -55,22 +55,27 @@
 			<li data-slide-to="2" data-target="#main-slider" class=""></li>
 		</ol>
 		<div class="carousel-inner">
-			{% for blog_post in blog_posts.object_list %}
-			{% if blog_post.featured_post %}
-			<div style="background-image: url({{ MEDIA_URL }}{{blog_post.featured_image }})" class="item {% cycle 'active' '' '' %}">
+			{% blog_recent_posts as recent_posts %}
+			{% for recent_post in recent_posts %}
+			{% if forloop.counter < 4 %}
+			{% if recent_post.featured_post %}
+			{{ forloop.counter|add:1 }}
+			<div style="background-image: url({{ MEDIA_URL }}{{ recent_post.featured_image }})" class="item {% cycle 'active' '' '' %}">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 col-md-12">
 							<div class="carousel-content center" style="margin-top: 265px;">
-								<h2 class="animation animated-item-1"><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h2>
-								<p class="animation animated-item-2">{{ blog_post.publish_date|timesince }} {% trans "ago" %}</p>
+								<h2 class="animation animated-item-1"><a href="{{ blog_post.get_absolute_url }}">{{ recent_post.title }}</a></h2>
+								<p class="animation animated-item-2">{{ recent_post.publish_date|timesince }} {% trans "ago" %}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div><!--/.item-->
 			{% endif %}
-			{% endfor %} 
+			{% else %}
+			{% endif %}
+			{% endfor %}
 		</div><!--/.carousel-inner-->
 	</div><!--/.carousel-->
 	<a data-slide="prev" href="#main-slider" class="prev hidden-xs">
