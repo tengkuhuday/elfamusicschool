@@ -63,7 +63,7 @@
 						<div class="col-sm-12 col-md-12">
 							<div class="carousel-content center" style="margin-top: 265px;">
 								<h2 class="animation animated-item-1"><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h2>
-								<p class="animation animated-item-2">{{ blog_post.publish_date|timesince }} {% trans "ago" %}</p>
+								<p class="animation animated-item-2" id="slider-time">{{ blog_post.publish_date|timesince }} {% trans "ago" %}</p>
 							</div>
 						</div>
 					</div>
