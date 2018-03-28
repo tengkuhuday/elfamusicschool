@@ -317,6 +317,9 @@ body > section {
 .wet-asphalt a:not(.btn):hover {
   color: #d9534f;
 }
+.white {
+  background-color: #ffffff; 
+}
 .midnight-blue {
   background-color: #2c3e50;
 }
@@ -1159,7 +1162,36 @@ ul.faq li > div h3 {
 
 .contact-us {
   color: black;
+  overflow: hidden;
 }
+
+.contact-us .text {
+  padding-top: 30%;
+}
+
+.btn.btn-blue {
+  background: #1abcef;
+  border-radius: 20px;
+  color: #0b304e
+}
+
+.btn.btn-blue:hover {
+  background: #1afcbf;
+  border-radius: 20px;
+}
+
+
+.btn.btn-dark {
+  border-radius: 20px;
+  color: white;
+  background: black;
+}
+
+.btn.btn-dark:hover {
+  background: white;
+  color: black;
+}
+
 
 .follow-us {
   color: black;
@@ -1169,6 +1201,10 @@ ul.faq li > div h3 {
   color: white;
   font-style: bold;
   font-size: 30px;
+}
+
+img.logo {
+  width: 50%;
 }
 
 img.chairman {
@@ -1204,9 +1240,9 @@ img.drummerF {
 }
 
 img.piano {
-  width: 150%;
-  height: 150%;
-  top: 0;
+  top: 0px;
+  width: 200%;
+  position: absolute;
 }
 
 #btn-mainkan-peranmu {
