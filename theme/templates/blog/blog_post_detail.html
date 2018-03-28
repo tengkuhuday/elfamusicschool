@@ -34,6 +34,47 @@
 						<div class="col-sm-12">
 							<div class="carousel-content center" style="margin-top: 265px;">
 								<h2 class="animation animated-item-1"><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h2>
+								{% block blog_post_list_post_metainfo %}
+								{% editable blog_post.publish_date %}
+								<div class="entry-meta">
+                                <span><i class="icon-user"></i> {% with blog_post.user as author %}
+								<a class="subtitle" href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
+								{% endwith %}
+								</span>
+								<br />
+                                <span><i class="icon-folder-close"></i>
+                                {% with blog_post.categories.all as categories %}
+								{% if categories %}
+								{% trans "in" %}
+								{% for category in categories %}
+								<a class="subtitle" href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+								{% endfor %}
+								{% endif %}
+								{% endwith %}
+                                
+                                </span>
+                                <br />
+                                <span><i class="icon-calendar"></i> {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}</span>
+                                <br />
+                                <span><i class="icon-comment"></i> 
+                                {% if blog_post.allow_comments %}
+									
+									{% if settings.COMMENTS_DISQUS_SHORTNAME %}
+									<a class="subtitle" href="{{ blog_post.get_absolute_url }}#disqus_thread"
+										data-disqus-identifier="{% disqus_id_for blog_post %}">
+										{% trans "Comments" %}
+									</a>
+									{% else %}
+									<a class="subtitle" href="{{ blog_post.get_absolute_url }}#comments">
+										{% blocktrans count comments_count=blog_post.comments_count %}{{ comments_count }} comment{% plural %}{{ comments_count }} comments{% endblocktrans %}
+									</a>
+									{% endif %}
+									{% endif %}
+																
+                                </span>
+                            </div>
+                            {% endeditable %}
+							{% endblock %}
 							</div>
 						</div>
 					</div>
@@ -56,53 +97,6 @@
 		
 	
 	{% endblock %}
-{% block blog_post_list_post_metainfo %}
-{% editable blog_post.publish_date %}
-			<div class="panel">
-				<div class="panel-body">
-                   <div class="entry-meta">
-                                <span><i class="icon-user"></i> {% with blog_post.user as author %}
-								<a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
-								{% endwith %}
-								</span>
-								<br />
-                                <span><i class="icon-folder-close"></i>
-                                {% with blog_post.categories.all as categories %}
-								{% if categories %}
-								{% trans "in" %}
-								{% for category in categories %}
-								<a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
-								{% endfor %}
-								{% endif %}
-								{% endwith %}
-                                
-                                </span>
-                                <br />
-                                <span><i class="icon-calendar"></i> {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}</span>
-                                <br />
-                                <span><i class="icon-comment"></i> 
-                                {% if blog_post.allow_comments %}
-									
-									{% if settings.COMMENTS_DISQUS_SHORTNAME %}
-									<a href="{{ blog_post.get_absolute_url }}#disqus_thread"
-										data-disqus-identifier="{% disqus_id_for blog_post %}">
-										{% trans "Comments" %}
-									</a>
-									{% else %}
-									<a href="{{ blog_post.get_absolute_url }}#comments">
-										{% blocktrans count comments_count=blog_post.comments_count %}{{ comments_count }} comment{% plural %}{{ comments_count }} comments{% endblocktrans %}
-									</a>
-									{% endif %}
-									{% endif %}
-																
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-{% endeditable %}
-{% endblock %}
-
 
 <div class="panel">
 	<div class="panel-body">
