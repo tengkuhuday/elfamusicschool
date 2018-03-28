@@ -129,7 +129,7 @@
 	</div>
 </section><!-- #team -->
 
-<section  id="portfolio" class="container">
+<section id="portfolio" class="container">
 	<div class="section-header">
 		<h3 class="section-title">Latest News</h3>
 		<span class="section-divider"></span>
@@ -137,58 +137,45 @@
 		<br><br>			
 	</div>
 
-	<!-- <div class="row"> -->
-		
-		
-		
-		<!-- <div class="col-sm-8 col-sm-pull-4"> -->
-			<!-- <div class="blog"> -->
-				{% if tag or category or year or month or author %}
-				{% block blog_post_list_filterinfo %}
-				<p>
-					{% if tag %}
-					{% trans "Viewing posts tagged" %} {{ tag }}
-					{% else %}{% if category %}
-					{% trans "Viewing postxs for the category" %} {{ category }}
-					{% else %}{% if year or month %}
-					{% trans "Viewing posts from" %} {% if month %}{{ month }}, {% endif %}
-					{{ year }}
-					{% else %}{% if author %}
-					{% trans "Viewing posts by" %}
-					{{ author.get_full_name|default:author.username }}
-					{% endif %}{% endif %}{% endif %}{% endif %}
-					{% endblock %}
-				</p>
-				{% else %}
-				{% if page %}
-				{% block blog_post_list_pagecontent %}
-				{% if page.get_content_model.content %}
-				{% editable page.get_content_model.content %}
-				{{ page.get_content_model.content|richtext_filters|safe }}
-				{% endeditable %}
-				{% endif %}
+	{% if tag or category or year or month or author %}
+	{% block blog_post_list_filterinfo %}
+	<p>
+		{% if tag %}
+		{% trans "Viewing posts tagged" %} {{ tag }}
+		{% else %}{% if category %}
+		{% trans "Viewing postxs for the category" %} {{ category }}
+		{% else %}{% if year or month %}
+		{% trans "Viewing posts from" %} {% if month %}{{ month }}, {% endif %}
+		{{ year }}
+		{% else %}{% if author %}
+		{% trans "Viewing posts by" %}
+		{{ author.get_full_name|default:author.username }}
+		{% endif %}{% endif %}{% endif %}{% endif %}
+		{% endblock %}
+	</p>
+	{% else %}
+	{% if page %}
+	{% block blog_post_list_pagecontent %}
+	{% if page.get_content_model.content %}
+	<!--{% editable page.get_content_model.content %}
+	{{ page.get_content_model.content|richtext_filters|safe }}
+	{% endeditable %}-->
+	{% endif %}
+	{% endblock %}
+	{% endif %}
+	{% endif %}
+				
+	<ul class="portfolio-items col-3">
+		{% for blog_post in blog_posts.object_list %}
+		<li class="portfolio-item apps">
+			<div class="item-inner">
+				{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+				{% block blog_post_list_post_featured_image %}
+				<a href="{{ blog_post.get_absolute_url }}">
+					<img src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">                    
+				</a>
 				{% endblock %}
 				{% endif %}
-				{% endif %}
-
-
-				
-				<ul class="portfolio-items col-3">
-					<!-- <div class="blog-item"> -->
-						{% for blog_post in blog_posts.object_list %}
-						<li class="portfolio-item apps">
-							<div class="item-inner">
-								{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-								{% block blog_post_list_post_featured_image %}
-								<a href="{{ blog_post.get_absolute_url }}">
-									<img src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">                    
-								</a>
-			<!-- <a href="{{ blog_post.get_absolute_url }}">
-				<img width="100%" class="img-responsive img-blog" src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">
-			</a> -->
-			{% endblock %}
-			{% endif %}
-			<!-- <div class="blog-content"> -->
 
 				{% block blog_post_list_post_title %}
 
@@ -242,7 +229,6 @@
 			{% endblock %}
 			<br>
 
-
 			{% block blog_post_list_post_content %}
 			{% editable blog_post.content %}
 			{{ blog_post.description_from_content|safe }}
@@ -251,23 +237,16 @@
 
 			<!-- <a href="{{ blog_post.get_absolute_url }}"  class="btn btn-default">{% trans "read more" %} <i class="icon-angle-right"> </i></a> -->
 
-
-
 		</div>           
-	</li><!--/.portfolio-item-->
+	</li>
 	{% endfor %}
-</ul><!-- </div> -->
-<!-- </div> -->
-
-<!-- </div> -->
-<!-- </div> -->
+</ul>
 
 {% pagination_for blog_posts %}
 
 {% if settings.COMMENTS_DISQUS_SHORTNAME %}
 {% include "generic/includes/disqus_counts.html" %}
 {% endif %}
-<!-- </div> -->
 </section>
 {% endblock %}
 
