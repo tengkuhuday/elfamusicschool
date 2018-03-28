@@ -994,9 +994,10 @@ ul.rss li::before {
   content: "\f09e";
 }
 #footer {
+  font-size: 15px;
   padding-top: 30px;
   padding-bottom: 30px;
-  color: #bdc3c7;
+  color: black;
 }
 #footer a {
   color: #bdc3c7;
@@ -1168,7 +1169,10 @@ img.chairman {
   border: 2;
   border-color: white;
   border-radius: 50%;
+  margin-top: 1%;
   margin-bottom: 1%;
+  height: 300px;
+  width: 300px;
 }
 
 img.people {
