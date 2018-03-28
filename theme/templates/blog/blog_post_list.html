@@ -65,8 +65,8 @@
 					<div class="row">
 						<div class="col-sm-12 col-md-12">
 							<div class="carousel-content center" style="margin-top: 265px;">
-								<h2 class="animation animated-item-1"><a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a></h2>
-								<p class="animation animated-item-2" id="slider-time">{% trans "by" %} {{ recent_post.user.get_fullname|default:recent_post.user.username }} {{ recent_post.publish_date|timesince }} {% trans "ago" %}</p>
+								<h2 class="animation animated-item-1"><a id="big-title" href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a></h2>
+								<p class="animation animated-item-2" id="subtitle">{% trans "by" %} {{ recent_post.user.get_fullname|default:recent_post.user.username }} {{ recent_post.publish_date|timesince }} {% trans "ago" %}</p>
 							</div>
 						</div>
 					</div>
@@ -95,7 +95,7 @@
 		<div class="row" data-aos="fade-up">
 			<div class="col-lg-3 col-md-6">
 				<div class="member">
-					<div class="pic"><img src="../static/images/assets/author-1.jpg" alt=""></div>
+					<div class="pic"><img src="/static/images/assets/author-1.jpg" alt=""></div>
 					<h4>Walter White</h4>
 					<span>Chief Executive Officer</span>
 				</div>
@@ -103,7 +103,7 @@
 
 			<div class="col-lg-3 col-md-6">
 				<div class="member">
-					<div class="pic"><img src="../static/images/assets/author-2.jpg" alt=""></div>
+					<div class="pic"><img src="/static/images/assets/author-2.jpg" alt=""></div>
 					<h4>Sarah Jhinson</h4>
 					<span>Product Manager</span>
 				</div>
@@ -111,7 +111,7 @@
 
 			<div class="col-lg-3 col-md-6">
 				<div class="member">
-					<div class="pic"><img src="../static/images/assets/author-3.jpg" alt=""></div>
+					<div class="pic"><img src="/static/images/assets/author-3.jpg" alt=""></div>
 					<h4>William Anderson</h4>
 					<span>CTO</span>
 				</div>
@@ -119,7 +119,7 @@
 
 			<div class="col-lg-3 col-md-6">
 				<div class="member">
-					<div class="pic"><img src="../static/images/assets/author-4.jpg" alt=""></div>
+					<div class="pic"><img src="/static/images/assets/author-4.jpg" alt=""></div>
 					<h4>Amanda Jepson</h4>
 					<span>Accountant</span>
 				</div>

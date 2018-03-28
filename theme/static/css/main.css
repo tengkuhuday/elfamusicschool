@@ -346,17 +346,20 @@ body > section {
   width: 100%;
   height: 100%;
 }
-#slider-time {
-  color: white;
+#subtitle {
+  color: #ffffff;
+  font-size: 20px;
+}
+#big-title {
+  color: #ffffff;
   font-style: bold;
-  font-size: 30px;
+  font-size: 50px;
 }
 #main-slider {
   position: relative;
 }
 #main-slider .carousel a {
   color: #ffffff;
-  font-size: 50px;
 }
 #main-slider .carousel h2 {
   font-style: bold;
@@ -1160,6 +1163,12 @@ ul.faq li > div h3 {
 
 .follow-us {
   color: black;
+}
+
+.subtitle a {
+  color: white;
+  font-style: bold;
+  font-size: 30px;
 }
 
 img.chairman {
