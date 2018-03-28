@@ -60,8 +60,8 @@
 			<div style="background-image: url({{ MEDIA_URL }}{{blog_post.featured_image }})" class="item {% cycle 'active' '' '' %}">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12">
-							<div class="carousel-content centered" style="margin-top: 265px;">
+						<div class="col-sm-12 col-md-12">
+							<div class="carousel-content center" style="margin-top: 265px;">
 								<h2 class="animation animated-item-1"><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h2>
 								<p class="animation animated-item-2">{{ blog_post.publish_date|timesince }} {% trans "ago" %}</p>
 							</div>
