@@ -169,9 +169,10 @@
 				{% endif %}
 
 
-				{% for blog_post in blog_posts.object_list %}
+				
 				<ul class="portfolio-items col-3">
 					<!-- <div class="blog-item"> -->
+						{% for blog_post in blog_posts.object_list %}
 						<li class="portfolio-item apps">
 							<div class="item-inner">
 								{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
@@ -251,9 +252,9 @@
 
 		</div>           
 	</li><!--/.portfolio-item-->
+	{% endfor %}
 </ul><!-- </div> -->
 <!-- </div> -->
-{% endfor %}
 
 <!-- </div> -->
 <!-- </div> -->
