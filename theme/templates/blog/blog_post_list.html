@@ -57,9 +57,8 @@
 			<li data-slide-to="4" data-target="#main-slider" class=""></li>
 		</ol>
 		<div class="carousel-inner">
-			{% blog_recent_posts as recent_posts %}
+			{% blog_recent_posts limit=5 category="featured-post" as recent_posts %}
 			{% for recent_post in recent_posts %}
-			{% if recent_post.featured_post %}
 			<div style="background-image: url({{ MEDIA_URL }}{{ recent_post.featured_image }})" class="item {% cycle 'active' '' '' %}">
 				<div class="container">
 					<div class="row">
@@ -72,7 +71,6 @@
 					</div>
 				</div>
 			</div><!--/.item-->
-			{% endif %}
 			{% endfor %}
 		</div><!--/.carousel-inner-->
 	</div><!--/.carousel-->
