@@ -46,15 +46,14 @@
 									</span>
 									<span>
 										{% with blog_post.categories.all as categories %}
-										{% if categories %}
-										{% for category in categories %}
-										<p class="animation animated-item-2" id="subtitle">
-											<i class="icon-folder-close"></i>
-											<a id="subtitle" href="{% url "blog_post_list_category" category.slug %}">In {{ category }}</a>
-										</p>
-										{% if not forloop.last %}, {% endif %}
-										{% endfor %}
-										{% endif %}
+											{% if categories %}
+												<p class="animation animated-item-2" id="subtitle">
+												<i class="icon-folder-close"></i> In
+												{% for category in categories %}												
+													<a id="subtitle" href="{% url "blog_post_list_category" category.slug %}"> {{ category }}</a>{% if not forloop.last %},{% endif %}
+												{% endfor %}
+												</p>
+											{% endif %}
 										{% endwith %}
 									</span>
 									<span>

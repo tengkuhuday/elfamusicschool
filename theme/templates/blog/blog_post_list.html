@@ -59,7 +59,7 @@
 		<div class="carousel-inner">
 			{% blog_recent_posts limit=5 category="featured-post" as recent_posts %}
 			{% for recent_post in recent_posts %}
-			<div style="background-image: url({{ MEDIA_URL }}{{ recent_post.featured_image }})" class="item {% cycle 'active' '' '' %}">
+			<div style="background-image: url({{ MEDIA_URL }}{{ recent_post.featured_image }})" class="item {% cycle 'active' '' '' '' '' %}">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 col-md-12">
