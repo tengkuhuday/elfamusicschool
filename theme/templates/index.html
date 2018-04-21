@@ -122,13 +122,60 @@
         </div>
     </section>
 
+    <!-- <section class="highlight-news blue">
+        <div class="container">
+            <div class="text-center">
+                    <h1>Elfa's News</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <br>
+                    
+                </div>
+            <div class="text-center" id="main-slider">
+                <div class="carousel slide wet-asphalt">
+                    <ol class="carousel-indicators">
+                        <li data-slide-to="0" data-target="#main-slider" class="active"></li>
+                        <li data-slide-to="1" data-target="#main-slider" class=""></li>
+                        <li data-slide-to="2" data-target="#main-slider" class=""></li>
+                        <li data-slide-to="3" data-target="#main-slider" class=""></li>
+                        <li data-slide-to="4" data-target="#main-slider" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        {% blog_recent_posts limit=5 category="featured-post" as recent_posts %}
+                        {% for recent_post in recent_posts %}
+                        <div style="background-image: url({{ MEDIA_URL }}{{ recent_post.featured_image }})" class="item {% cycle 'active' '' '' '' '' %}">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="carousel-content center" style="margin-top: 265px;">
+                                            <h2 class="animation animated-item-1"><a id="big-title" href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a></h2>
+                                            <p class="animation animated-item-2" id="subtitle">{% trans "by" %} {{ recent_post.user.get_fullname|default:recent_post.user.username }} {{ recent_post.publish_date|timesince }} {% trans "ago" %}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <a data-slide="prev" href="#main-slider" class="prev hidden-xs">
+                    <i class="icon-angle-left"></i>
+                </a>
+                <a data-slide="next" href="#main-slider" class="next hidden-xs">
+                    <i class="icon-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </section> -->
+
     <!-- Highlight News -->
     <section class="highlight-news blue">
         <div class="container">
+            <!-- <img class="guitarist" src="static/images/assets/guitarist.png" alt="guitarist"> -->
             <div class="row">
                 <div class="col-md-3">
-                    <h3>Elfa's News</h3>
+                    <h1>Elfa's News</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <br>
                     <div class="btn-group">
                         <a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
                         <a class="btn btn-danger" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
@@ -223,7 +270,7 @@
         </div>
     </section>
     <div class="text-center yellow" id="drummer">
-        <img id="hahaha" src="static/images/assets/drummer.png" width="20%" height="auto">
+        <img src="static/images/assets/drummer.png" width="20%" height="auto">
     </div>
     <!--<section class="contact-us-extended yellow">
         <img class="drummerF" src="static/images/assets/7.png" width="100" height="100">

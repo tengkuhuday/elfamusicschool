@@ -519,7 +519,8 @@ body > section {
   position: relative;
 }
 .portfolio-item img {
-  width: 100%;
+  width: 300px;
+  height: 200px;
 }
 .portfolio-item h5 {
   background: #fff;
@@ -1166,7 +1167,7 @@ ul.faq li > div h3 {
 
 .highlight-news {
   color: white;
-  padding: 90px 0;
+  padding-top: 90px 0;
 }
   
 .highlight-news .item-inner {
@@ -1254,6 +1255,12 @@ img.confetti {
 img.piano {
   top: 0px;
   width: 200%;
+  position: absolute;
+}
+
+img.guitarist {
+  width: 20%;
+  margin-top: 0;
   position: absolute;
 }
 
