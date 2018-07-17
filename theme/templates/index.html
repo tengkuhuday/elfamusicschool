@@ -11,60 +11,14 @@
     <section class="album" id="main-slider">
         <div class="carousel slide wet-asphalt">
             <ol class="carousel-indicators">
-                <li class="" data-slide-to="0" data-target="#main-slider"></li>
+                <li data-slide-to="0" data-target="#main-slider" class=""></li>
                 <li data-slide-to="1" data-target="#main-slider" class=""></li>
-                <li data-slide-to="2" data-target="#main-slider" class="active"></li>
+                <li data-slide-to="2" data-target="#main-slider" class=""></li>
             </ol>
             <div class="carousel-inner">
-                <div style="background-image: url(static/images/slider/bg4.jpg)" class="item active">
-                    <!--
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="carousel-content centered" style="margin-top: 265px;">
-                                    <h2 class="animation animated-item-1">Powerful and Responsive Web Design</h2>
-                                    <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                </div><!--/.item-->
-                <div style="background-image: url(static/images/slider/bg5.jpg)" class="item">
-                    <!--
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="carousel-content center centered" style="margin-top: 208.5px;">
-                                    <h2 class="boxed animation animated-item-1">Clean, Crisp, Powerful and Responsive Web Design</h2>
-                                    <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                    <br>
-                                    <a href="#" class="btn btn-md animation animated-item-3">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                </div><!--/.item-->
-                <div style="background-image: url(static/images/slider/bg6.jpg)" class="item">
-                    <!--
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="carousel-content centered" style="margin-top: 219px;">
-                                    <h2 class="animation animated-item-1">Powerful and Responsive Web Design Theme</h2>
-                                    <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
-                                    <a href="#" class="btn btn-md animation animated-item-3">Learn More</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="centered" style="margin-top: 129px;">
-                                    <div class="embed-container">
-                                        <iframe frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src="//player.vimeo.com/video/69421653?title=0&amp;byline=0&amp;portrait=0&amp;color=a22c2f"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                </div><!--/.item-->
+                <div style="background-image: url(static/images/slider/bg4.jpg)" class="item active"></div>
+                <div style="background-image: url(static/images/slider/bg5.jpg)" class="item"></div>
+                <div style="background-image: url(static/images/slider/bg6.jpg)" class="item"></div>
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
         <a data-slide="prev" href="#main-slider" class="prev hidden-xs">
@@ -104,7 +58,7 @@
     <section class="chairman-message">
         <div class="container">
             <div class="col-md-6 col-sm-6">
-                <img class="chairman" src="static/images/assets/author-2.jpg" alt="chairman">
+                <img class="chairman" src="static/images/assets/chairman.jpeg" alt="chairman">
                 <h2 class="text-center">Vera Sylvina</h2>
                 <h4 style="font-family: 'lato-light'" class="text-center">Chairman of Elfa Music School</h4>
             </div>
@@ -122,51 +76,6 @@
         </div>
     </section>
 
-    <!-- <section class="highlight-news blue">
-        <div class="container">
-            <div class="text-center">
-                    <h1>Elfa's News</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <br>
-                    
-                </div>
-            <div class="text-center" id="main-slider">
-                <div class="carousel slide wet-asphalt">
-                    <ol class="carousel-indicators">
-                        <li data-slide-to="0" data-target="#main-slider" class="active"></li>
-                        <li data-slide-to="1" data-target="#main-slider" class=""></li>
-                        <li data-slide-to="2" data-target="#main-slider" class=""></li>
-                        <li data-slide-to="3" data-target="#main-slider" class=""></li>
-                        <li data-slide-to="4" data-target="#main-slider" class=""></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        {% blog_recent_posts limit=5 category="featured-post" as recent_posts %}
-                        {% for recent_post in recent_posts %}
-                        <div style="background-image: url({{ MEDIA_URL }}{{ recent_post.featured_image }})" class="item {% cycle 'active' '' '' '' '' %}">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12">
-                                        <div class="carousel-content center" style="margin-top: 265px;">
-                                            <h2 class="animation animated-item-1"><a id="big-title" href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a></h2>
-                                            <p class="animation animated-item-2" id="subtitle">{% trans "by" %} {{ recent_post.user.get_fullname|default:recent_post.user.username }} {{ recent_post.publish_date|timesince }} {% trans "ago" %}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                <a data-slide="prev" href="#main-slider" class="prev hidden-xs">
-                    <i class="icon-angle-left"></i>
-                </a>
-                <a data-slide="next" href="#main-slider" class="next hidden-xs">
-                    <i class="icon-angle-right"></i>
-                </a>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Highlight News -->
     <section class="highlight-news blue">
         <div class="container">
@@ -174,7 +83,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <h1>Elfa's News</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <p>Keep up to date with our blog posts. Find out what we've been doing and read about the latest news.</p>
                     <br>
                     <div class="btn-group">
                         <a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
@@ -243,14 +152,8 @@
                     <p>Ayo kita dukung cita – cita mereka, karna sukses kita adalah sukses kita bersama, untuk Indonesia</p>
                 </div>
                 <br>
-                <!-- <div class="text-center">
-                    <input type="button" id="btn-mainkan-peranmu" value="MAINKAN PERANMU!">
-                </div> -->
             </div>
             <div class="col-md-6 col-sm-6">
-                <!-- <div class="text-center">  
-                    <input type="button" id="btn-mainkan-peranmu" value="MAINKAN PERANMU!">
-                </div> -->
                 <img class="confetti" src="static/images/assets/4.png" alt="confetti">
             </div>
         </div>
@@ -265,63 +168,12 @@
                 <p class="paragraph">Jl. Duta 9 Blok LL no.14, Kemang Pratama Bekasi, 17116 </p>
                 <br>
                 <button id=btn-contact-us class="btn btn-dark form-control h1"><b>Contact Us</b></button>
-                <!--<div class="text row">
-                    
-                </div>-->
             </div>
-            <!--<div class="col-md-6 col-sm-6">
-                <img class="piano" src="static/images/assets/3.png">
-            </div>-->
         </div>
     </section>
     <div class="text-center yellow" id="drummer">
         <img src="static/images/assets/drummer.png" width="20%" height="auto">
     </div>
-    <!--<section class="contact-us-extended yellow">
-        <img class="drummerF" src="static/images/assets/7.png" width="100" height="100">
-    </section>-->
-
-    <!-- Follow Us
-    <section class="follow-us" id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="icon-twitter icon-md"></i>
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Twitter Marketing</h3>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="icon-facebook icon-md"></i>
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Facebook Marketing</h3>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="icon-google-plus icon-md"></i>
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Google Plus Marketing</h3>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-
 
 {% endblock %}
 
