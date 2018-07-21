@@ -713,7 +713,7 @@ ul.tag-cloud li {
   display: inline-block;
   margin: 0 0 2px 0;
 }
-/*.btn-social {
+.btn-social {
   border: 0;
   color: #fff;
   border-radius: 100%;
@@ -723,13 +723,13 @@ ul.tag-cloud li {
   line-height: 36px;
   text-align: center;
   padding: 0;
-}*/
-/*.btn-social.btn-facebook {
+}
+.btn-social.btn-facebook {
   background: #4f7dd4;
 }
 .btn-social.btn-facebook:hover {
   background: #789bde;
-}*/
+}
 .btn-social.btn-twitter {
   background: #5bceff;
 }
@@ -1268,7 +1268,7 @@ img.guitarist {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 70%;
+  width: 60%;
 }
 
 #drummer {
