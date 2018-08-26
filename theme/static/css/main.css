@@ -254,6 +254,12 @@ body > section {
 .asbestos small {
   color: rgba(255, 255, 255, 0.8);
 }
+.elearning {
+  background-image: url("../images/assets/e-learning.jpg"); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
 .yellow {
   background-color: #e6de28;
 }
@@ -1175,6 +1181,12 @@ ul.faq li > div h3 {
   margin: 0;
 }
 
+.e-learning {
+  color: white;
+  font-size: 50px;
+  font-weight: 800;
+}
+
 .support-us {
   color: black;
 }
@@ -1192,6 +1204,15 @@ ul.faq li > div h3 {
   background: #1abcef;
   border-radius: 20px;
   color: #0b304e
+}
+
+.btn.btn-red {
+  background: #ff3333;
+  border-radius: 20px;
+  color: white;
+  font-size: 17px;
+  width: 100%;
+  height: 100%;
 }
 
 .btn.btn-blue:hover {
