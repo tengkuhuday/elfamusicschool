@@ -82,9 +82,9 @@
     <!-- e-Learning -->
     <section class="e-learning elearning">
         <div class="container">
-            <div class="col-md-7 col-sm-7">
+            <div class="col-md-7 col-sm-7 col-xs-7">
             </div>
-            <div class="col-md-5 col-sm-5">
+            <div class="col-md-5 col-sm-5 col-xs-5">
                 <div class="row">
                     <br><br><br><br>
                     <p>The 1st e-Learning</p>
@@ -95,7 +95,7 @@
                     <div class="row col-md-7">
                         <button class="btn btn-red form-control" onclick="window.location.href='https://www.elearning.elfamusicschool.com/'"><b>START FREE TRIAL</b></button>
                     </div>
-                    <br><br>
+                    <br><br><br>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@
                                     {% blog_recent_posts 6 as recent_posts %}
                                     {% for recent_post in recent_posts %}
                                     {% if forloop.counter < 4 %}
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-4 col-md-4">
                                         <div class="portfolio-item">
                                             <div class="item-inner">
                                                 <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
