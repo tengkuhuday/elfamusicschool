@@ -123,11 +123,83 @@
                                 <div class="row">
                                     {% blog_recent_posts 6 as recent_posts %}
                                     {% for recent_post in recent_posts %}
-                                    {% if forloop.counter < 4 %}
-                                    <div class="col-xs-4 col-md-4">
+                                    {% if forloop.counter < 2 %}
+                                    <div class="col-xs-12 col-md-12">
                                         <div class="portfolio-item">
-                                            <div class="item-inner">
-                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
+                                            <div class="item-inner text-center">
+                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive img-slide" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
+                                                <h5>
+                                                    <a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    {% for recent_post in recent_posts %}
+                                    {% if forloop.counter > 1 and forloop.counter < 3 %}
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner text-center">
+                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive img-slide" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
+                                                <h5>
+                                                    <a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    {% for recent_post in recent_posts %}
+                                    {% if forloop.counter > 2 and forloop.counter < 4 %}
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner text-center">
+                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive img-slide" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
+                                                <h5>
+                                                    <a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    {% for recent_post in recent_posts %}
+                                    {% if forloop.counter > 3 and forloop.counter < 5 %}
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner text-center">
+                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive img-slide" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
+                                                <h5>
+                                                    <a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    {% for recent_post in recent_posts %}
+                                    {% if forloop.counter > 4 and forloop.counter < 6 %}
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner text-center">
+                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive img-slide" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
                                                 <h5>
                                                     <a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a>
                                                 </h5>
@@ -141,11 +213,11 @@
                             <div class="item">
                                 <div class="row">
                                     {% for recent_post in recent_posts %}
-                                    {% if forloop.counter > 3 %}
-                                    <div class="col-xs-4">
+                                    {% if forloop.counter > 5 %}
+                                    <div class="col-xs-12 col-md-12">
                                         <div class="portfolio-item">
-                                            <div class="item-inner">
-                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
+                                            <div class="item-inner text-center">
+                                                <a href="{{ recent_post.get_absolute_url }}"><img class="img-responsive img-slide" src="{{ MEDIA_URL }}{{ recent_post.featured_image }}" alt=""></a>
                                                 <h5>
                                                     <a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a>
                                                 </h5>
@@ -190,10 +262,10 @@
     <!-- Contact Us -->
     <section class="contact-us yellow">
         <div class="container">
-            <div class="col-md-6 col-sm-6">
-                <img class="guitarist" src="static/images/assets/guitarist.png">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <img class="guitarist" src="static/images/assets/guitarist.png" width="100%" height="auto">
             </div>
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="row">
                     <h5>KEEP IN TOUCH</h5><br>
                     <h1><b>Contacts</b></h1><br>
@@ -214,14 +286,14 @@
     <section class="follow-us yellow">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-6 text-center">
+                <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <a href="https://www.facebook.com/elfamusicenter/" style="color: black"><h5><img width="20%" src="static/images/ico/facebook-logo.png" hspace="10"><strong>elfamusicenter</strong></h5></a>
                 </div>
-                <div class="col-md-4 col-sm-6 text-center">
-                    <h5><a href="mailto:elfamusiccenter@gmail.com" style="color:black"><img width="20%" src="static/images/ico/gmail-email-envelope.png" hspace="10"><strong>elfamusiccenter@gmail.com</strong></a></h5>
-                </div>
-                <div class="col-md-4 col-sm-6 text-center">
+                <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <a href="https://www.instagram.com/elfamusicschool/" style="color: black"><h5><img width="20%" src="static/images/ico/instagram-logo.png" hspace="10"><strong>@elfamusicschool</strong></h5></a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6 text-center">
+                    <h5><a href="mailto:elfamusiccenter@gmail.com" style="color:black"><img width="20%" src="static/images/ico/gmail-email-envelope.png" hspace="10"><strong>elfamusiccenter@gmail.com</strong></a></h5>
                 </div>
             </div>
         </div>

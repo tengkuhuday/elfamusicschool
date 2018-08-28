@@ -1294,6 +1294,11 @@ img.guitarist {
   width: 60%;
 }
 
+img.img-slide {
+  height: auto;
+  width: 100%;
+}
+
 #drummer {
   margin-bottom: 0px;
   padding-bottom: 0px;
